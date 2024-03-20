@@ -158,6 +158,65 @@ select  exercise_name from Exercises where difficulty not in ('L','M');
 -- 15.users whose target goal starts with the letter 'I'.
 select username from Users where target_goal like 'I%';
 
+use Fitness;
+
+select * from Users;
+
+select * from Exercises;
+
+select * from Workouts;
+
+select * from Workout_Exercises;
+
+-- 21. update user13 password to Mypassword
+update Users set password='Mypassword' where username='user13';
+
+--22 delete Exercise with name plank
+delete Exercises where exercise_name='Plank';
+
+--23 count how many gender are allowed in gym
+select count(distinct gender) from Users;
+
+--24 sort thr user by there age if age is siminlar than in descending order by their heigt
+select * from Users order by age,height_inches desc;
+
+--25 Add unique key constraint to Exercisee name
+alter table Exercises add constraint unique_exerc unique(exercise_name);
+
+-- 26 union username age from user and exercise name and age from excerisee table
+select username,age from Users
+Union
+select exercise_name,exerciseId from Exercises;
+
+--27 check if any user has null target
+select * from Users where target_goal is null;
+
+-- 28 index in User table.
+create index name_index on Users (username);
+
+--29 drop the index from user table
+drop index name_index on Users;
+
+--30 delete all the details of Excerice using turncate coomand
+truncate table Exercise;
+
+--31 alter table user add user  plan column in table 
+alter table Users add [plan] varchar(10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
